@@ -1,5 +1,6 @@
 import react, { useEffect, useState } from 'react'
 import { dbService, dbAddDoc, dbCollection, dbQuery, dbOnSnapShot } from '../fbase';
+import Nweet from '../components/Nweet';
 
 function Home(props) {
 
@@ -51,9 +52,7 @@ function Home(props) {
             {
                 nweets.map((nweet) => {
                     return (
-                        <div key={nweet.id}>
-                            <h4>{nweet.text}</h4>
-                        </div>
+                        <Nweet key={nweet.id} NweetObj={nweet} isOwner={nweet.creatorId == props.userObj.uid}/>
                     )
                 })
             }
