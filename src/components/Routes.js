@@ -9,13 +9,13 @@ function AppRouter(props) {
     
     return(
         <>
-            {props.isLoggedin ? <Navigation/> : null}
+            {props.isLoggedin ? <Navigation userObj={props.userObj}/> : null}
             <Routes>
                 {
                     props.isLoggedin ? 
                     <>
                         <Route path='/' element={<Home userObj={props.userObj}/>}/>
-                        <Route path='profile' element={<Profile/>}/>
+                        <Route path='/profile' element={<Profile userObj={props.userObj} refreshUser={props.refreshUser}/>}/>
                     </> : 
                     <>
                         <Route path='/'element={<Auth/>}/>
