@@ -1,6 +1,6 @@
 import { async } from '@firebase/util';
 import react, { useState } from 'react';
-import { dbService, dbdeleteDoc, dbUpdataDoc, dbDoc } from '../fbase';
+import { dbService, dbdeleteDoc, dbUpdataDoc, dbDoc, storageService, stRef, stDeleteObject } from '../fbase';
 
 const Nweet = (props) => {
     const [editing, setEditing] = useState(false);  //edit 모드인지 확인
@@ -13,6 +13,9 @@ const Nweet = (props) => {
         if(ok) {
             //delete
             await dbdeleteDoc(nweetRef);
+            if(props.NweetObj.attachmentURL !== "") {
+                await stDeleteObject(stRef(storageService, props.NweetObj.attachmentURL));
+            }
         }
     }
     const toggleEditing = () => setEditing((prev => !prev))
@@ -48,6 +51,7 @@ const Nweet = (props) => {
                 ) : (
                     <>
                         <h4>{props.NweetObj.text}</h4>
+                        {props.NweetObj.attachmentURL && <img src={props.NweetObj.attachmentURL} width="50px" height="50px"/>}
                         {
                             props.isOwner ? 
                             <>
