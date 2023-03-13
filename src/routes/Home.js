@@ -1,5 +1,6 @@
 import react, { useEffect, useState, useRef } from 'react'
-import { dbService, dbAddDoc, dbCollection, dbQuery, dbOnSnapShot } from '../fbase';
+import {v4 as uuidv4} from 'uuid'
+import { dbService, dbAddDoc, dbCollection, dbQuery, dbOnSnapShot, storageService, stRef, stUploadString, stGetDownloadURL } from '../fbase';
 import Nweet from '../components/Nweet';
 
 function Home(props) {
@@ -8,7 +9,7 @@ function Home(props) {
 
     const [nweet, setNweet] = useState("");
     const [nweets, setNweets] = useState([]);
-    const [attachment, setAttachment] = useState();
+    const [attachment, setAttachment] = useState("");
 
     const onChange = (e) => {
         const {target:{value}} = e;
@@ -16,13 +17,24 @@ function Home(props) {
     }
     const onSubmit = async (e) => {
         e.preventDefault();
-        console.log('click')
-        await dbAddDoc(dbCollection(dbService, "nweets"),{
+        var attachmentURL = "";
+        
+        if(attachment !== "") {
+            const attachmentRef = stRef(storageService, `${props.userObj.uid}/${uuidv4()}`);
+            const response = await stUploadString(attachmentRef, attachment, "data_url");
+            attachmentURL = await stGetDownloadURL(response.ref);
+        }
+        const nweetTemp = {
             text: nweet, 
             createAt: Date.now(),
-            creatorId: props.userObj.uid
-        });
+            creatorId: props.userObj.uid,
+            attachmentURL
+        }
+        
+        await dbAddDoc(dbCollection(dbService, "nweets"), nweetTemp);
         setNweet("");
+        setAttachment("");
+        fileInput.current.value = null;
     }
     const onFileChange = (e) => {
         const {target : {files}} = e;
@@ -35,7 +47,7 @@ function Home(props) {
         reader.readAsDataURL(theFile);
     }
     const onClearAttachment = () => {
-        setAttachment(null);
+        setAttachment("");
         fileInput.current.value = null;
     }
 
@@ -64,9 +76,6 @@ function Home(props) {
                 accept='image/*'
                 onChange={onFileChange}
                 ref={fileInput}/>
-                {
-                    console.log(fileInput.current)
-                }
                 <input
                 type="submit"
                 value="Nweet"/>
