@@ -1,5 +1,4 @@
 import {useEffect, useState} from 'react'
-import Routes from "./Routes";
 import AppRouter from '../components/Routes'
 import {authService} from '../fbase'
 
@@ -35,6 +34,7 @@ function App() {
         
       } else {
         setLoggedIn(false);
+        setUserobj(null);
       }
       setInit(true);
     })
