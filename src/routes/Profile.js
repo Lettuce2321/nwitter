@@ -1,9 +1,7 @@
-import { collection } from 'firebase/firestore';
 import react, {useEffect, useState} from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { authService, dbService, dbQuery, dbCollection, dbOrderBy, dbGetDocs, dbWhere } from '../fbase';
+import { useNavigate} from 'react-router-dom';
+import { authService, dbService, dbQuery, dbCollection, dbGetDocs, dbWhere } from '../fbase';
 import { updateProfile } from 'firebase/auth';
-import { async } from '@firebase/util';
 
 function Profile(props) {
     const navigate = useNavigate();
