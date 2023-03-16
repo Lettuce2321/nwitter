@@ -26,8 +26,8 @@ function Auth(){
         <div className='authContainer'>
             <AuthForm/>
             <div>
-                <button name='Github' onClick={onSocialClick}>Continue with Github</button>
-                <button name='Google' onClick={onSocialClick}>Continue with Google</button>
+                <button name='Github' onClick={onSocialClick} className="authSocial">Continue with Github</button>
+                <button name='Google' onClick={onSocialClick} className="authSocial">Continue with Google</button>
             </div>
         </div>
     )
