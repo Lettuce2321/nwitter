@@ -1,0 +1,70 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.nweetContainer {
+    width: 30%;
+    max-width: 320px;
+    padding: 5px 10px;
+    margin: 10px auto 10px auto;
+    font-size: 14px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    /* align-items: center; */
+}
+.nweetContainer img {
+    width: 80%;
+    height: 80%;
+    border-radius: 7px;
+    margin: 5px 5px;
+}
+.nweetContainer h4 {
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+.nweet__action {
+    bottom: 0;
+    right: 0;
+    margin-bottom: 5px;
+    text-align: right;
+}
+.nweet__action button {
+    background-color: rgb(86, 194, 240);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin: 0px 5px;
+}
+.nweet__edit {
+    width: 90%;
+    border: 1px solid grey;
+    border-radius: 8px;
+    padding: 3px 5px;
+    margin:5px auto 5px auto;
+}
+.nweet__editButton__container {
+    width: 90%;
+    margin: auto;
+    text-align: right;
+
+}
+.nweet_editButton {
+    background-color: rgb(86, 194, 240);
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin: 0px 5px;
+    padding: 2px 4px;
+}

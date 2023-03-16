@@ -1,0 +1,60 @@
+.nweetFactoryContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.inputContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 0px auto 10px auto;
+    width: 100%;    
+    max-width: 320px;
+}
+.nweetInput__input {
+    width: 100%;
+    max-width: 320px;
+    height: 40px;
+    color: white;
+    font-size: 14px;
+    padding: 0px 7px;
+    border: 1px solid rgb(86, 194, 240);
+    border-radius: 20px;
+}
+.nweetInput__submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgb(86, 194, 240);
+    height: 40px;
+    width: 40px;
+    padding: 10px 0px;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.nweetInput__img {
+    color: rgb(86, 194, 240);
+    font-size: 14px;
+    cursor: pointer;
+}
+.attachment__img {
+    width: 70px;
+    height: 70px;
+    border-radius: 30px;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.attachment__cancel {
+    color: rgb(86, 194, 240);
+    font-size: 14px;
+    cursor: pointer;
+    background-color: black;
+    border: none;
+}

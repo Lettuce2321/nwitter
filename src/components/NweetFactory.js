@@ -1,6 +1,8 @@
 import react, {useState, useRef} from 'react';
 import { dbAddDoc, dbCollection, dbService, stGetDownloadURL, storageService, stRef, stUploadString } from '../fbase';
 import {v4 as uuidv4} from 'uuid'
+import "../css/mainStyle.css"
+import "../css/NweetFactoryStyle.css"
 
 const NweetFactory = (props) => {
 
@@ -49,27 +51,39 @@ const NweetFactory = (props) => {
         fileInput.current.value = null;
     }
     return (
-        <form onSubmit={onSubmit}>
-                <input
-                type="text"
-                value={nweet}
-                onChange={onChange}
-                placeholder="What's on your mind?"
-                max={120}/>
+        <div >
+            <form onSubmit={onSubmit} className='nweetFactoryContainer'>
+                <div className="inputContainer">
+                    <input
+                    type="text"
+                    value={nweet}
+                    onChange={onChange}
+                    placeholder="What's on your mind?"
+                    max={120}
+                    className="nweetInput__input"
+                    required/>
+                    <input
+                    type="submit"
+                    value="NT!"
+                    className="nweetInput__submit"/>
+                </div>
+                <label for="attach-file">
+                    <span className='nweetInput__img'>add photo</span>
+                </label>
                 <input 
+                id="attach-file"
                 type="file"
                 accept='image/*'
                 onChange={onFileChange}
-                ref={fileInput}/>
-                <input
-                type="submit"
-                value="Nweet"/>
-                {attachment && 
+                ref={fileInput}
+                style={{opacity: 0}}/>
+                {attachment && (
                 <div>
-                    <img src={attachment} width="50px" height="50px"/>
-                    <button onClick={onClearAttachment}>cancel upload</button>
-                </div>}
+                    <img src={attachment} className="attachment__img"/>
+                    <button onClick={onClearAttachment} className="attachment__cancel">cancel upload</button>
+                </div>)}
             </form>
+        </div>
     )
 }
 
