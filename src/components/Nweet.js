@@ -1,5 +1,6 @@
 import react, { useState } from 'react';
 import { dbService, dbdeleteDoc, dbUpdataDoc, dbDoc, storageService, stRef, stDeleteObject } from '../fbase';
+import "../css/mainStyle.css"
 import "../css/NweetStyle.css"
 
 const Nweet = (props) => {
