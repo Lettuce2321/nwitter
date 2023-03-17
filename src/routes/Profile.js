@@ -2,6 +2,8 @@ import react, {useEffect, useState} from 'react'
 import { useNavigate} from 'react-router-dom';
 import { authService, dbService, dbQuery, dbCollection, dbGetDocs, dbWhere } from '../fbase';
 import { updateProfile } from 'firebase/auth';
+import "../css/mainStyle.css"
+import "../css/ProfileStyle.css"
 
 function Profile(props) {
     const navigate = useNavigate();
@@ -39,17 +41,20 @@ function Profile(props) {
 
     return (
         <>
-        <form onSubmit={onSubmit}>
-            <input
-            type="text"
-            placeholder='DisplayName'
-            value={newDisplayName}
-            onChange={onChange} />
-            <input
-            type="submit"
-            value="Update Profile" />
-        </form>
-            <button onClick={onLogOutClick}>Log out</button>
+            <form onSubmit={onSubmit} className="formContainer">
+                <input
+                type="text"
+                placeholder='DisplayName'
+                value={newDisplayName}
+                className="profileUpdate__input"
+                onChange={onChange} required/>
+                <input
+                type="submit"
+                className="profileUpdate__update"
+                value="Update Profile" />
+            </form>
+            <button onClick={onLogOutClick} className="profile__logout">Log out</button>
+
         </>
     )
 }

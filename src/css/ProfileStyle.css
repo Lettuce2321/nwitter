@@ -1,0 +1,43 @@
+.formContainer {
+    width: 100%;
+    max-width: 320px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid white;
+}
+.profileUpdate__input {
+    background-color: white;
+    color: black;
+    margin: 10px auto 0px;
+    padding: 8px 7px 8px;
+    border: 1px solid grey;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 320px;
+    font-size: 12px;
+}
+.profileUpdate__update {
+    width: 100%;
+    background-color: rgb(86, 194, 240);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 5px;
+    margin: 8px;
+    cursor: pointer;
+}
+.profile__logout {    
+    width: 100%;
+    max-width: 320px;
+    display: block;
+    margin: 20px auto 20px;
+    background-color: tomato;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 5px;
+    cursor: pointer;   
+}
